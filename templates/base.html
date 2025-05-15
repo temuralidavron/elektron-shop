@@ -1,137 +1,151 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-    <head>
-    <title>Davron-style.company</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="keywords" content="N-Air Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-		<script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<meta charset utf="8">
-		<!--fonts-->
-		<link href='//fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+<head>
+    <meta charset="UTF-8">
+    <title>Davron-style | Zamonaviy kiyimlar do'koni</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!--fonts-->
-		<!--bootstrap-->
-			 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-		<!--coustom css-->
-			<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
-        <!--shop-kart-js-->
-        <script src="{% static 'js/simpleCart.min.js' %}"></script>
-		<!--default-js-->
-			<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
-		<!--bootstrap-js-->
-			<script src="{% static 'js/bootstrap.min.js' %}"></script>
-		<!--script-->
-    </head>
-    <body>
-        <div class="header">
-            <div class="container">
-                <div class="header-top">
-                    <div class="logo">
-                        <a href="{% url 'home' %}">Davron-style</a>
-                    </div>
-                    <div class="login-bars">
-                        <a class="btn btn-default log-bar" href="{% url 'registr' %}" role="button">Sign up</a>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
 
-                    </div>
-        <div class="clearfix"></div>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-link {
+            color: #555;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 40px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-links a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .social a {
+            margin-right: 15px;
+            color: #495057;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #212529;
+        }
+
+        .copy-rt {
+            background: #e9ecef;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Davron-style</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                {% for i in ctg %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products' slug=i.slug %}">{{ i.name }}</a>
+                </li>
+                {% endfor %}
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary ms-3" href="{% url 'registr' %}">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row text-center text-md-start">
+            <div class="col-md-3 mb-4">
+                <h5>Kategoriyalar</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">Erkaklar</a></li>
+                    <li><a href="#">Ayollar</a></li>
+                    <li><a href="#">Bolalar</a></li>
+                    <li><a href="#">Sport</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5>Qisqa havolalar</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">Biz bilan bog‘lanish</a></li>
+                    <li><a href="#">Yordam</a></li>
+                    <li><a href="#">Yetkazib berish</a></li>
+                    <li><a href="#">Qaytarish siyosati</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>Ijtimoiy tarmoqlar</h5>
+                <div class="social">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="https://t.me/aliyevtemur95">Telegram</a>
                 </div>
-                <!---menu-----bar--->
-                <div class="header-botom">
-                    <div class="content white">
-                    <nav class="navbar navbar-default nav-menu" role="navigation">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="clearfix"></div>
-                        <!--/.navbar-header-->
-
-                        <div class="collapse navbar-collapse collapse-pdng" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav nav-font">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        {% for i in ctg %}
-                                        <li><a href="{% url 'products' slug=i.slug %}">{{ i.name }}</a></li>
-                                        {% endfor %}
-
-                                    </ul>
-                                </li>
-                                            {% for i in ctg %}
-                                <li><a href="{% url 'products' slug=i.slug %}">{{ i.name }}</a></li>
-                                 {% endfor %}
-
-                                <div class="clearfix"></div>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <!--/.navbar-collapse-->
-                        <div class="clearfix"></div>
-                    </nav>
-                    <!--/.navbar-->
-                        <div class="clearfix"></div>
-                    </div>
-                    <!--/.content--->
-                </div>
-                    <!--header-bottom-->
+            </div>
+            <div class="col-md-2 text-md-end">
+                <div class="footer-logo">Davron-style</div>
             </div>
         </div>
+    </div>
+</footer>
 
-        {% block content %}
-        {% endblock content %}
-            <div class="footer-grid">
-            <div class="container">
-                <div class="col-md-2 re-ft-grd">
-                    <h3>Categories</h3>
-                    <ul class="categories">
-                        <li><a href="#">Men</a></li>
-                        <li><a href="#">Women</a></li>
-                        <li><a href="#">Kids</a></li>
-                        <li><a href="#">Formal</a></li>
-                        <li><a href="#">Casuals</a></li>
-                        <li><a href="#">Sports</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 re-ft-grd">
-                    <h3>Short links</h3>
-                    <ul class="shot-links">
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Delivery</a></li>
-                        <li><a href="#">Return Policy</a></li>
-                        <li><a href="#">Terms & conditions</a></li>
-                        <li><a href="contact.html">Sitemap</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 re-ft-grd">
-                    <h3>Social</h3>
-                    <ul class="social">
-                        <li><a href="#" class="fb">facebook</a></li>
-                        <li><a href="#" class="twt">twitter</a></li>
-                        <li><a href="https://t.me/aliyevtemur95" class="gpls">Telegram</a></li>
-                        <div class="clearfix"></div>
-                    </ul>
-                </div>
-                <div class="col-md-2 re-ft-grd">
-                    <div class="bt-logo">
-                        <div class="logo">
-                            <a href="{% url 'home' %}" class="ft-log">Davronstyle</a>
-                        </div>
-                    </div>
-                </div>
-        <div class="clearfix"></div>
-            </div>
-            <div class="copy-rt">
-                <div class="container">
-            <p>&copy;   2023 DavronStyle. Design by T.Aliyev</p>
-                </div>
-            </div>
-        </div>
-    </body>
+<div class="copy-rt">
+    <div class="container">
+        &copy; 2025 Davron-style. Dizayn: <a href="https://t.me/aliyevtemur95" target="_blank">T.Aliyev</a>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>

@@ -70,11 +70,9 @@ def registration(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
 
-        # Yangi foydalanuvchini "User" modeliga qo'shish
         user = User.objects.create(name=name, email=email, phone=phone)
         user.save()
 
-        # Bazaga malumot qo'shildiktan so'ng, foydalanuvchini boshqa sahifaga yo'naltirish
-        return redirect('home')  # 'success' nomli URLga o'tish
+        return redirect('home')
     else:
         return render(request, 'blog/registr.html')
